@@ -21,13 +21,17 @@
             align-items: center;
             height: 100vh;
             flex-direction: column;
+            text-align: center;
         }
 
         h1 {
             font-family: 'Poppins', sans-serif;
-            text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            font-weight: 600;
             margin-bottom: 30px;
+            color: #fff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         /* Tab Navigation Styling */
@@ -37,67 +41,118 @@
             border-radius: 10px;
             overflow: hidden;
             background-color: #333;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
         }
 
         .tab {
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            text-align: center;
+            padding: 20px 40px;
+            font-size: 1.3rem;
             cursor: pointer;
             flex: 1;
-            transition: background-color 0.3s ease, transform 0.2s;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            border-right: 1px solid #444;
         }
 
         .tab:hover {
             background-color: #575757;
             transform: scale(1.05);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .tab:last-child {
+            border-right: none;
         }
 
         .active-tab {
             background-color: #007bff;
             font-weight: bold;
             transform: scale(1.05);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
         }
 
         /* Content Styling */
         .content {
             display: none;
-            padding: 20px;
+            padding: 30px;
             background-color: white;
             border-radius: 10px;
             margin-top: 20px;
-            text-align: center;
-            color: #333;
             width: 80%;
-            max-width: 600px;
+            max-width: 700px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            color: #333;
+            font-size: 1.1rem;
         }
 
         .active-content {
             display: block;
         }
 
-        /* Image Styling */
         .content img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
             margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .content h2, .content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #007bff;
+            font-weight: 600;
         }
 
         /* Button-like Links */
         .button-link {
             background-color: #2575fc;
-            padding: 10px 25px;
+            padding: 12px 25px;
             color: white;
             border-radius: 5px;
             text-decoration: none;
             font-size: 1.1rem;
             transition: background-color 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
         }
 
         .button-link:hover {
             background-color: #1a5fb3;
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tab-container {
+                flex-direction: column;
+            }
+            .tab {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .content {
+                width: 90%;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            .tab {
+                font-size: 0.9rem;
+                padding: 12px 20px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -108,29 +163,35 @@
     <div class="tab-container">
         <div class="tab active-tab" onclick="showContent(0)">Education</div>
         <div class="tab" onclick="showContent(1)">Work</div>
-        <div class="tab" onclick="showContent(2)">Skills</div> <!-- Corrected index -->
+        <div class="tab" onclick="showContent(2)">Skills</div>
     </div>
 
     <!-- Content for Tab 1 (Education) -->
     <div class="content active-content" id="content1">
         <h2>Graduation</h2>
-        <p>B.Tech.</p> <!-- Corrected closing tag -->
-        <img src="https://th.bing.com/th/id/OIP.4gy9DvovxVFfqMfJ58A5AQHaHa?w=189&h=189&c=7&r=0&o=5&dpr=1.5&pid=1.7">
+        <p>B.Tech. in Computer Science</p>
+        <img src="https://th.bing.com/th/id/OIP.4gy9DvovxVFfqMfJ58A5AQHaHa?w=189&h=189&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Graduation Image">
     </div>
 
     <!-- Content for Tab 2 (Work) -->
     <div class="content" id="content2">
         <h2>Work</h2>
-        <p>Working as Software Engineer.</p>
-        <img src="https://th.bing.com/th/id/OIP.FV6akOmOnRq9RaWVJCGPowHaEH?rs=1&pid=ImgDetMain">
+        <p>Currently working as a Software Engineer, specializing in Cloud Environments and Kubernetes.</p>
+        <img src="https://th.bing.com/th/id/OIP.FV6akOmOnRq9RaWVJCGPowHaEH?rs=1&pid=ImgDetMain" alt="Work Image">
     </div>
 
     <!-- Content for Tab 3 (Skills) -->
     <div class="content" id="content3">
         <h3>Skills</h3>
-        <img src="https://th.bing.com/th?q=Kubernetes+Logo.svg&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.5&pid=InlineBlock&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247">
-        <img src="https://th.bing.com/th/id/OIP.D-0WvrpnKVWQKkpAIZSzyQHaEY?w=245&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7">
-        <img src="https://th.bing.com/th?id=OIP.0Is0Bxodds-SBu1JHhMZgAHaDx&w=349&h=178&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2">
+        <ul>
+            <li>Cloud Technologies: AWS, GCP, Azure</li>
+            <li>Containerization: Docker, Kubernetes</li>
+            <li>Programming Languages: Python, JavaScript, Java</li>
+            <li>Web Development: React, Node.js, HTML, CSS</li>
+        </ul>
+        <img src="https://th.bing.com/th/id/OIP.4gy9DvovxVFfqMfJ58A5AQHaHa?w=189&h=189&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Skills Image">
+        <img src="https://th.bing.com/th/id/OIP.D-0WvrpnKVWQKkpAIZSzyQHaEY?w=245&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Skills Image">
+        <img src="https://th.bing.com/th?id=OIP.0Is0Bxodds-SBu1JHhMZgAHaDx&w=349&h=178&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="Skills Image">
     </div>
 
     <script>
@@ -154,4 +215,3 @@
 
 </body>
 </html>
-
