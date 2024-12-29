@@ -108,33 +108,31 @@
     <div class="tab-container">
         <div class="tab active-tab" onclick="showContent(0)">Education</div>
         <div class="tab" onclick="showContent(1)">Work</div>
-        <div class="tab" onclick="showContent(3)">Skills</div>
-    
+        <div class="tab" onclick="showContent(2)">Skills</div> <!-- Corrected index -->
     </div>
 
-    <!-- Content for Tab 1 -->
+    <!-- Content for Tab 1 (Education) -->
     <div class="content active-content" id="content1">
         <h2>Graduation</h2>
-        <p></p> B.tech.</p>
+        <p>B.Tech.</p> <!-- Corrected closing tag -->
         <img src="https://th.bing.com/th/id/OIP.4gy9DvovxVFfqMfJ58A5AQHaHa?w=189&h=189&c=7&r=0&o=5&dpr=1.5&pid=1.7">
     </div>
-    <!-- Content for Tab 3 -->
-    <div class="content active-content" id="content3">
+
+    <!-- Content for Tab 2 (Work) -->
+    <div class="content" id="content2">
+        <h2>Work</h2>
+        <p>Working as Software Engineer.</p>
+        <img src="https://th.bing.com/th/id/OIP.FV6akOmOnRq9RaWVJCGPowHaEH?rs=1&pid=ImgDetMain">
+    </div>
+
+    <!-- Content for Tab 3 (Skills) -->
+    <div class="content" id="content3">
         <h3>Skills</h3>
         <img src="https://th.bing.com/th/id/OIP.4gy9DvovxVFfqMfJ58A5AQHaHa?w=189&h=189&c=7&r=0&o=5&dpr=1.5&pid=1.7">
-	<img src="https://th.bing.com/th/id/OIP.D-0WvrpnKVWQKkpAIZSzyQHaEY?w=245&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7">
-	<img src="https://th.bing.com/th?id=OIP.0Is0Bxodds-SBu1JHhMZgAHaDx&w=349&h=178&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2">
+        <img src="https://th.bing.com/th/id/OIP.D-0WvrpnKVWQKkpAIZSzyQHaEY?w=245&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7">
+        <img src="https://th.bing.com/th?id=OIP.0Is0Bxodds-SBu1JHhMZgAHaDx&w=349&h=178&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2">
     </div>
 
-    <!-- Content for Tab 2 -->
-    <div class="content" id="content2">
-        <h2> Work</h2>
-        <p>Working as Software engineer.</p>
-        <img src="https://th.bing.com/th/id/OIP.FV6akOmOnRq9RaWVJCGPowHaEH?rs=1&pid=ImgDetMain">
-
-    </div>
-
-    
     <script>
         // Function to show content for the clicked tab
         function showContent(tabIndex) {
@@ -156,3 +154,4 @@
 
 </body>
 </html>
+
