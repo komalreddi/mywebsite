@@ -90,6 +90,8 @@
             font-size: 1.2rem;
             text-align: left;
             border-top: 4px solid #007bff;
+            overflow-y: auto; /* Enable vertical scroll if content is too large */
+            max-height: 400px; /* Set a max height to avoid overflow */
         }
 
         .active-content {
@@ -127,6 +129,11 @@
         .button-link:hover {
             background-color: #1a5fb3;
             transform: scale(1.05);
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
         }
 
         /* Responsive Design */
