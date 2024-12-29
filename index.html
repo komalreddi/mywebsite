@@ -3,87 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Stylish Page</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Clickable Tabs</title>
 
     <style>
-        /* Global styles */
+        /* Basic styling for the body */
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f06, #4a90e2);
+            background-color: #f4f4f9;
+        }
+
+        /* Tab container */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        /* Styling individual tabs */
+        .tab {
+            padding: 14px 30px;
             color: white;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: #444;
+            border: 1px solid #333;
+            cursor: pointer;
             text-align: center;
+            flex: 1;
+            transition: background-color 0.3s;
         }
 
-        h1 {
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 20px;
+        /* Tab hover effect */
+        .tab:hover {
+            background-color: #555;
         }
 
-        p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            margin-bottom: 20px;
+        /* Active tab styling */
+        .active-tab {
+            background-color: #007bff;
         }
 
-        /* Links Styling */
-        a {
-            text-decoration: none;
-            color: #f2f2f2;
-            font-size: 1.5rem;
-            margin: 10px 15px;
-            transition: color 0.3s ease;
+        /* Content area */
+        .content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            color: #333;
+            border-top: 1px solid #ccc;
         }
 
-        a:hover {
-            color: #ffdd57;
-            text-decoration: underline;
-        }
-
-        /* Container for links */
-        .links-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        /* Button-like links */
-        .btn-link {
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 10px 25px;
-            border-radius: 5px;
-            margin: 10px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-link:hover {
-            background-color: rgba(255, 255, 255, 0.4);
+        .active-content {
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <div>
-        <h1>Welcome to My Stylish Page</h1>
-        <p>Explore the links below:</p>
-        
-        <div class="links-container">
-            <a href="https://www.example.com" target="_blank" class="btn-link">Example Link 1</a>
-            <a href="https://www.example2.com" target="_blank" class="btn-link">Example Link 2</a>
-            <a href="https://www.example3.com" target="_blank" class="btn-link">Example Link 3</a>
-        </div>
+    <!-- Tab Navigation -->
+    <div class="tab-container">
+        <div class="tab active-tab" onclick="showContent(0)">Tab 1</div>
+        <div class="tab" onclick="showContent(1)">Tab 2</div>
+        <div class="tab" onclick="showContent(2)">Tab 3</div>
     </div>
+
+    <!-- Content for Tab 1 -->
+    <div class="content active-content" id="content1">
+        <h2>Tab 1 Information</h2>
+        <p>This is the content for Tab 1. You can add any information you like here.</p>
+    </div>
+
+    <!-- Content for Tab 2 -->
+    <div class="content" id="content2">
+        <h2>Tab 2 Information</h2>
+        <p>This is the content for Tab 2. You can add another set of information here.</p>
+    </div>
+
+    <!-- Content for Tab 3 -->
+    <div class="content" id="content3">
+        <h2>Tab 3 Information</h2>
+        <p>This is the content for Tab 3. Feel free to add more details in this section.</p>
+    </div>
+
+    <script>
+        // Function to display content based on the tab clicked
+        function showContent(tabIndex) {
+            // Hide all content sections
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => content.classList.remove('active-content'));
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active-tab'));
+
+            // Show the clicked tab's content
+            document.getElementById('content' + (tabIndex + 1)).classList.add('active-content');
+            
+            // Add active class to the clicked tab
+            tabs[tabIndex].classList.add('active-tab');
+        }
+    </script>
 
 </body>
 </html>
