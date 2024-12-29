@@ -3,61 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clickable Tabs</title>
+    <title>Beautiful Tabs with Information</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* Basic styling for the body */
+        /* Global styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom right, #6a11cb, #2575fc);
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
         }
 
-        /* Tab container */
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        /* Tab Navigation Styling */
         .tab-container {
             display: flex;
             justify-content: center;
+            border-radius: 10px;
+            overflow: hidden;
             background-color: #333;
         }
 
-        /* Styling individual tabs */
         .tab {
-            padding: 14px 30px;
-            color: white;
-            background-color: #444;
-            border: 1px solid #333;
-            cursor: pointer;
+            padding: 15px 30px;
+            font-size: 1.2rem;
             text-align: center;
+            cursor: pointer;
             flex: 1;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease, transform 0.2s;
         }
 
-        /* Tab hover effect */
         .tab:hover {
-            background-color: #555;
+            background-color: #575757;
+            transform: scale(1.05);
         }
 
-        /* Active tab styling */
         .active-tab {
             background-color: #007bff;
+            font-weight: bold;
+            transform: scale(1.05);
         }
 
-        /* Content area */
+        /* Content Styling */
         .content {
             display: none;
             padding: 20px;
             background-color: white;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
             color: #333;
-            border-top: 1px solid #ccc;
+            width: 80%;
+            max-width: 600px;
         }
 
         .active-content {
             display: block;
         }
+
+        /* Image Styling */
+        .content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Button-like Links */
+        .button-link {
+            background-color: #2575fc;
+            padding: 10px 25px;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-link:hover {
+            background-color: #1a5fb3;
+        }
     </style>
 </head>
 <body>
+
+    <h1>Explore the Information Below</h1>
 
     <!-- Tab Navigation -->
     <div class="tab-container">
@@ -68,24 +113,33 @@
 
     <!-- Content for Tab 1 -->
     <div class="content active-content" id="content1">
-        <h2>Tab 1 Information</h2>
-        <p>This is the content for Tab 1. You can add any information you like here.</p>
+        <h2>Information for Tab 1</h2>
+        <p>This is some general information for the first tab. You can add any content here.</p>
+        <img src="https://via.placeholder.com/500x300?text=Beautiful+Image+1" alt="Image 1">
+        <p>Here is some beautiful content with an image included!</p>
+        <a href="#" class="button-link">Learn More</a>
     </div>
 
     <!-- Content for Tab 2 -->
     <div class="content" id="content2">
-        <h2>Tab 2 Information</h2>
-        <p>This is the content for Tab 2. You can add another set of information here.</p>
+        <h2>Information for Tab 2</h2>
+        <p>This is some detailed information for the second tab. Feel free to add more content and images here.</p>
+        <img src="https://via.placeholder.com/500x300?text=Beautiful+Image+2" alt="Image 2">
+        <p>Tabs are a great way to organize content!</p>
+        <a href="#" class="button-link">Learn More</a>
     </div>
 
     <!-- Content for Tab 3 -->
     <div class="content" id="content3">
-        <h2>Tab 3 Information</h2>
-        <p>This is the content for Tab 3. Feel free to add more details in this section.</p>
+        <h2>Information for Tab 3</h2>
+        <p>This is the third tab's content. Add whatever you want here as well.</p>
+        <img src="https://via.placeholder.com/500x300?text=Beautiful+Image+3" alt="Image 3">
+        <p>Tabs are interactive and allow you to present content efficiently.</p>
+        <a href="#" class="button-link">Learn More</a>
     </div>
 
     <script>
-        // Function to display content based on the tab clicked
+        // Function to show content for the clicked tab
         function showContent(tabIndex) {
             // Hide all content sections
             const contents = document.querySelectorAll('.content');
