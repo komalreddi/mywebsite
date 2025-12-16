@@ -3,156 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Info</title>
+<title>My Portfolio</title>
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
-    --primary: #4facfe;
-    --secondary: #00f2fe;
-    --accent: #ff6b6b;
-    --dark: #1f2933;
-    --glass: rgba(255,255,255,0.15);
+    --primary: #6366f1;
+    --secondary: #22d3ee;
+    --bg: #0f172a;
+    --card: rgba(255,255,255,0.1);
+    --text: #f8fafc;
 }
 
-/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Background */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: var(--text);
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    color: #fff;
-    padding: 40px 20px;
+    padding: 30px;
 }
 
-/* Title */
-h1 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
+/* Container */
+.container {
+    width: 100%;
+    max-width: 900px;
+    background: var(--card);
+    backdrop-filter: blur(18px);
+    border-radius: 18px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    padding: 35px;
+}
+
+/* Header */
+header {
+    text-align: center;
     margin-bottom: 30px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    text-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+header h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+
+header p {
+    opacity: 0.8;
+    margin-top: 8px;
 }
 
 /* Tabs */
-.tab-container {
+.tabs {
     display: flex;
-    width: 100%;
-    max-width: 800px;
-    background: var(--glass);
-    backdrop-filter: blur(15px);
+    margin-top: 30px;
     border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    background: rgba(255,255,255,0.08);
 }
 
 .tab {
     flex: 1;
-    padding: 18px;
+    padding: 16px;
     text-align: center;
     cursor: pointer;
-    font-size: 1.2rem;
-    transition: all 0.35s ease;
+    transition: all 0.3s ease;
 }
 
 .tab:hover {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.12);
 }
 
-.active-tab {
+.tab.active {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: #000;
+    color: #020617;
     font-weight: 600;
 }
 
-/* Content Card */
+/* Content */
 .content {
     display: none;
     margin-top: 30px;
-    width: 100%;
-    max-width: 800px;
-    background: rgba(255,255,255,0.95);
-    color: #333;
-    border-radius: 16px;
-    padding: 30px;
-    animation: fadeUp 0.6s ease;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    animation: fade 0.4s ease;
 }
 
-.active-content {
+.content.active {
     display: block;
 }
 
-/* Headings */
-.content h2,
-.content h3 {
-    font-family: 'Poppins', sans-serif;
-    color: #4f46e5;
+.content h2 {
     margin-bottom: 15px;
 }
 
-/* Text */
 .content p,
 .content li {
-    font-size: 1.1rem;
     line-height: 1.7;
+    opacity: 0.9;
 }
 
-/* Images */
-.content img {
-    margin-top: 20px;
-    max-width: 100%;
-    border-radius: 12px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.content img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-}
-
-/* Skills Grid */
-.skills-images {
+/* Skills */
+.skills {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 15px;
+    margin-top: 15px;
+}
+
+.skill {
+    background: rgba(255,255,255,0.12);
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
 }
 
 /* Button */
-.button-link {
+.btn {
     display: inline-block;
-    margin-top: 15px;
-    padding: 14px 28px;
+    margin-top: 20px;
+    padding: 12px 26px;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: #000;
-    border-radius: 30px;
+    color: #020617;
+    border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
-.button-link:hover {
+.btn:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
 /* Animation */
-@keyframes fadeUp {
+@keyframes fade {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(15px);
     }
     to {
         opacity: 1;
@@ -161,13 +154,9 @@ h1 {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-    h1 {
+@media (max-width: 600px) {
+    header h1 {
         font-size: 2.2rem;
-    }
-    .tab {
-        font-size: 1rem;
-        padding: 14px;
     }
 }
 </style>
@@ -175,57 +164,59 @@ h1 {
 
 <body>
 
-<h1>My Info</h1>
+<div class="container">
+    <header>
+        <h1>My Portfolio</h1>
+        <p>DevOps Engineer | Cloud | Kubernetes</p>
+    </header>
 
-<div class="tab-container">
-    <div class="tab active-tab" onclick="showContent(0)">Education</div>
-    <div class="tab" onclick="showContent(1)">Work</div>
-    <div class="tab" onclick="showContent(2)">Skills</div>
-    <div class="tab" onclick="showContent(3)">Contact</div>
-</div>
+    <div class="tabs">
+        <div class="tab active" onclick="showTab(0)">Education</div>
+        <div class="tab" onclick="showTab(1)">Work</div>
+        <div class="tab" onclick="showTab(2)">Skills</div>
+        <div class="tab" onclick="showTab(3)">Contact</div>
+    </div>
 
-<div class="content active-content" id="content1">
-    <h2>Graduation</h2>
-    <p>B.Tech in Information Technology</p>
-    <img src="https://th.bing.com/th/id/OIP.4gy9DvovxVFfqMfJ58A5AQHaHa?w=189&h=189&c=7&r=0&o=5&dpr=1.5">
-</div>
+    <div class="content active">
+        <h2>🎓 Education</h2>
+        <p>B.Tech in Information Technology</p>
+    </div>
 
-<div class="content" id="content2">
-    <h2>Work</h2>
-    <p>DevOps Engineer specializing in Cloud Infrastructure and Kubernetes.</p>
-    <img src="https://gumlet.assettype.com/freepressjournal/2022-12/c6d62a5f-6811-4d40-b90c-d5f4dcabbf4e/Tata_Consultancy_Services_Limited_TCS_Logo_2.jpg">
-</div>
+    <div class="content">
+        <h2>💼 Work</h2>
+        <p>DevOps Engineer with hands-on experience in AWS, Docker, Kubernetes, and CI/CD pipelines.</p>
+    </div>
 
-<div class="content" id="content3">
-    <h3>Skills</h3>
-    <ul>
-        <li>AWS Cloud</li>
-        <li>Docker & Kubernetes</li>
-        <li>Python & Shell Scripting</li>
-    </ul>
+    <div class="content">
+        <h2>🛠 Skills</h2>
+        <div class="skills">
+            <div class="skill">AWS</div>
+            <div class="skill">Docker</div>
+            <div class="skill">Kubernetes</div>
+            <div class="skill">Python</div>
+            <div class="skill">Shell Scripting</div>
+            <div class="skill">CI/CD</div>
+        </div>
+    </div>
 
-    <div class="skills-images">
-        <img src="https://www.atatus.com/glossary/content/images/size/w960/2022/09/Kubernetes.jpeg">
-        <img src="https://th.bing.com/th/id/OIP.D-0WvrpnKVWQKkpAIZSzyQHaEY?w=245&h=180">
-        <img src="https://th.bing.com/th?id=OIP.0Is0Bxodds-SBu1JHhMZgAHaDx&w=349">
+    <div class="content">
+        <h2>📩 Contact</h2>
+        <p>Let’s connect on LinkedIn</p>
+        <a href="https://www.linkedin.com" class="btn">Visit Profile</a>
     </div>
 </div>
 
-<div class="content" id="content4">
-    <h3>Contact Me</h3>
-    <p>Let’s connect!</p>
-    <a href="https://www.linkedin.com" class="button-link">LinkedIn Profile</a>
-</div>
-
 <script>
-function showContent(index) {
-    document.querySelectorAll('.content').forEach(c => c.classList.remove('active-content'));
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active-tab'));
+function showTab(index) {
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.content');
 
-    document.getElementById(`content${index + 1}`).classList.add('active-content');
-    document.querySelectorAll('.tab')[index].classList.add('active-tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    contents.forEach(content => content.classList.remove('active'));
+
+    tabs[index].classList.add('active');
+    contents[index].classList.add('active');
 }
 </script>
-
 </body>
 </html>
